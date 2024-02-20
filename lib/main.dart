@@ -8,21 +8,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Login ',
+      title: 'Login Demo',
       theme: ThemeData(
-        primarySwatch: Colors.teal,
+        primarySwatch: Colors.blue,
       ),
       home: LoginPage(),
     );
   }
 }
 
-class LoginPage extends StatefulWidget {
-  @override
-  _LoginPageState createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
+class LoginPage extends StatelessWidget {
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -30,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        title: Text('LogIn'),
       ),
       body: Center(
         child: Padding(
@@ -38,6 +33,10 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Icon(
+                Icons.account_circle,
+                size: 60, // ขนาดไอคอน
+              ), // // ไอคอน user
               TextField(
                 controller: usernameController,
                 decoration: InputDecoration(
@@ -91,8 +90,15 @@ class SecondPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Username: $username'),
-            Text('Password: $password'),
+            Text(
+              'Username: $username',
+              style: TextStyle(color: Colors.blue), // เปลี่ยนสีข้อความเป็นสีฟ้า
+            ),
+            Text(
+              'Password: $password',
+              style:
+                  TextStyle(color: Colors.green), // เปลี่ยนสีข้อความเป็นสีเขียว
+            ),
           ],
         ),
       ),
